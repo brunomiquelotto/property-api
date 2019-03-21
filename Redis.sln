@@ -9,13 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{89A50774-9A09-4728-9CB8-37A08F58C3FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis.Api", "Redis.Api\Redis.Api.csproj", "{ACBBFB79-D2C1-4B5D-A334-AAA3B91ACA55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redis.Api", "Redis.Api\Redis.Api.csproj", "{ACBBFB79-D2C1-4B5D-A334-AAA3B91ACA55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis.Domain", "Redis.Domain\Redis.Domain.csproj", "{5E067CBC-4E82-4E9E-A314-019A988B77A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redis.Domain", "Redis.Domain\Redis.Domain.csproj", "{5E067CBC-4E82-4E9E-A314-019A988B77A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis.Infra.Data", "Redis.Infra.Data\Redis.Infra.Data.csproj", "{C5629567-978A-4B81-BFBF-81DEAA820723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redis.Infra.Data", "Redis.Infra.Data\Redis.Infra.Data.csproj", "{C5629567-978A-4B81-BFBF-81DEAA820723}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis.Infra.CrossCutting.IoC", "Redis.Infra.CrossCutting.IoC\Redis.Infra.CrossCutting.IoC.csproj", "{A11B9F9E-BD24-4286-903F-F6C6154D1012}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redis.Infra.CrossCutting.IoC", "Redis.Infra.CrossCutting.IoC\Redis.Infra.CrossCutting.IoC.csproj", "{A11B9F9E-BD24-4286-903F-F6C6154D1012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis.Infra.CrossCutting.Validation", "Redis.Infra.CrossCutting.Validation\Redis.Infra.CrossCutting.Validation.csproj", "{CD96F655-14D6-4686-9AE2-8576E2E39E28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A11B9F9E-BD24-4286-903F-F6C6154D1012}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A11B9F9E-BD24-4286-903F-F6C6154D1012}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A11B9F9E-BD24-4286-903F-F6C6154D1012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD96F655-14D6-4686-9AE2-8576E2E39E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD96F655-14D6-4686-9AE2-8576E2E39E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD96F655-14D6-4686-9AE2-8576E2E39E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD96F655-14D6-4686-9AE2-8576E2E39E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{5E067CBC-4E82-4E9E-A314-019A988B77A7} = {28A808B0-395C-4F55-8AA6-1092C84A52A3}
 		{C5629567-978A-4B81-BFBF-81DEAA820723} = {89A50774-9A09-4728-9CB8-37A08F58C3FF}
 		{A11B9F9E-BD24-4286-903F-F6C6154D1012} = {89A50774-9A09-4728-9CB8-37A08F58C3FF}
+		{CD96F655-14D6-4686-9AE2-8576E2E39E28} = {89A50774-9A09-4728-9CB8-37A08F58C3FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E8DF498-6203-438A-AC75-398877D7ABCB}
