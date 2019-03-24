@@ -8,6 +8,7 @@ namespace Redis.Api.Controllers.Base
 {
     [Produces("Application/Json")]
     [ApiController]
+    [Route("api/[controller]")]
     public class BaseController : ControllerBase
     {
     }

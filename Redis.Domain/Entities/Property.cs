@@ -1,4 +1,5 @@
-﻿using Redis.Infra.CrossCutting.Validation;
+﻿using Newtonsoft.Json;
+using Redis.Infra.CrossCutting.Validation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,9 +12,9 @@ namespace Redis.Domain.Entities
         public string Description { get; set; }
         public string Address { get; set; }
         public int Number { get; set; }
-        public IEnumerable<PropertyUnity> Unities { get; protected set; }
+        public virtual IEnumerable<PropertyUnity> Unities { get; protected set; }
 
-        protected Property ()
+        protected Property()
         {
             this.Id = Guid.NewGuid();
         }

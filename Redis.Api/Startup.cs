@@ -21,8 +21,13 @@ namespace Redis.Api
         public void ConfigureServices(IServiceCollection services)
         {   
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<AppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppConnection")));
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppConnection")));
             services.AddApplicationDependencies();
+            services.AddDistributedRedisCache(options =>
+            {
+                options.Configuration = Configuration.GetConnectionString("RedisConnection");
+                options.InstanceName = "properties";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

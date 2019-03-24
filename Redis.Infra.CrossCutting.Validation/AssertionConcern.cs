@@ -105,6 +105,15 @@ namespace Redis.Infra.CrossCutting.Validation
             }
         }
 
+        public static void AssertArgumentRange(decimal value, decimal minimum, decimal maximum, string message)
+        {
+            if (value < minimum || value > maximum)
+            {
+                throw new InvalidOperationException(message);
+            }
+        }
+
+
         public static void AssertArgumentTrue(bool boolValue, string message)
         {
             if (!boolValue)
@@ -208,5 +217,4 @@ namespace Redis.Infra.CrossCutting.Validation
             AssertionConcern.AssertStateTrue(boolValue, message);
         }
     }
-}
 }
