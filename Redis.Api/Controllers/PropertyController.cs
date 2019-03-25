@@ -1,23 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using Redis.Api.Cache;
 using Redis.Api.Controllers.Base;
 using Redis.Domain.Entities;
 using Redis.Infra.Data.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Redis.Api.Controllers
 {
     public class PropertyController : BaseController
     {
         private readonly PropertyRepository repository;
-        private readonly IDistributedCache cache;
+        private readonly JsonCache cache;
 
-        public PropertyController(PropertyRepository repository, IDistributedCache cache)
+        public PropertyController(PropertyRepository repository, JsonCache cache)
         {
             this.repository = repository;
             this.cache = cache;
@@ -32,20 +30,18 @@ namespace Redis.Api.Controllers
         [HttpGet("{Id}")]
         public ActionResult<Property> Get(Guid Id)
         {
-            string result = cache.GetString("property:" + Id.ToString());
+            Property result = cache.GetObject<Property>("property:" + Id.ToString());
             if (result == null)
             {
-                Property property = repository.FindWithUnities(Id);
-                if (property == null)
+                result = repository.FindWithUnities(Id);
+                if (result == null)
                 {
                     return NotFound();
                 }
-
-                result = JsonConvert.SerializeObject(property);
-                cache.SetString("property:" + Id.ToString(), result, new DistributedCacheEntryOptions() { AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(120) });
+                cache.SetObject("property:" + Id.ToString(), result);
             }
 
-            return JsonConvert.DeserializeObject<Property>(result);
+            return result;
         }
 
         [HttpPost]

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Redis.Api.Cache;
 using Redis.Infra.CrossCutting.IoC;
 
 namespace Redis.Api.Configurations
@@ -7,6 +8,7 @@ namespace Redis.Api.Configurations
     {
         public static void AddApplicationDependencies(this IServiceCollection services)
         {
+            services.AddScoped<JsonCache>();
             NativeDotNetInjector.Inject(services);
         }
     }
